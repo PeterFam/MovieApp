@@ -1,5 +1,6 @@
 package com.peterfam.movieapp.data.local
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.peterfam.movieapp.data.model.Movie
 
@@ -7,7 +8,7 @@ import com.peterfam.movieapp.data.model.Movie
 interface MovieDAO {
 
     @Query("SELECT * FROM movie")
-    fun getAllMovies(): List<Movie>
+    fun getAllMovies(): LiveData<List<Movie>>
 
     @Insert
     fun addNewMoview(movie: Movie)

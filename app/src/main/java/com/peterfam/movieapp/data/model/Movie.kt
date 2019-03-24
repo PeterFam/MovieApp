@@ -18,5 +18,5 @@ val movieTitle: String,
 val movieCategory: String,
 
 @ColumnInfo(name = "moviePoster")
-val moviewPoster: String
+val moviePoster: String
 ): Serializable

@@ -25,7 +25,7 @@ class MovieViewModel(application: Application) : AndroidViewModel(application) {
     private val scope = CoroutineScope(corotinesContext)
 
     init {
-        val movieDAO = AppDatabase.getDatabase(application).movieDAO()
+        val movieDAO = AppDatabase.getDatabase(application, scope).movieDAO()
         dataRepository = DataRepository(movieDAO)
         allMovies = dataRepository.allMovies
     }

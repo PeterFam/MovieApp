@@ -20,18 +20,23 @@ class MovieAdapter internal constructor(private val context: Context) :
         return MovieViewHolder(LayoutInflater.from(context).inflate(R.layout.movie_item_list, parent, false))
     }
 
-    override fun getItemCount(): Int = 5
+    override fun getItemCount(): Int = movieList.size
 
     override fun onBindViewHolder(holder: MovieAdapter.MovieViewHolder, position: Int) {
 
-//        Glide.with(context)
-//            .load("https://www.designyourway.net/blog/wp-content/uploads/2018/01/9xuYZ9H.jpg")
-//            .into(holder.movieImg)
+        val movie = movieList[position]
 
+        Glide.with(context)
+            .load(movie.moviePoster)
+            .into(holder.movieImg)
     }
 
     public class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val movieImg: ImageView = itemView.findViewById(R.id.movie_img)
     }
 
+    internal fun setMovies(movies: List<Movie>){
+        this.movieList = movies
+        notifyDataSetChanged()
+    }
 }

@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.peterfam.movieapp.data.model.Movie
+import kotlinx.coroutines.CoroutineScope
 
 @Database(entities = [Movie::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
@@ -15,7 +16,8 @@ abstract class AppDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
-        fun getDatabase(context: Context) : AppDatabase {
+        fun getDatabase(context: Context,
+                        scope: CoroutineScope) : AppDatabase {
 
             return INSTANCE ?: synchronized(this) {
 

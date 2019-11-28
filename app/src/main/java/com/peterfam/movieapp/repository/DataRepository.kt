@@ -1,4 +1,4 @@
-package com.peterfam.movieapp.data
+package com.peterfam.movieapp.repository
 
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
